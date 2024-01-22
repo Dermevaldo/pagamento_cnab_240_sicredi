@@ -1,5 +1,6 @@
 {
   "name": "dermevaldo/pagamento_cnab_240_sicredi",
+  "type": "library",
   "description": "Fork do murilosandiego.Pacote para gerar pagamentos através de arquivos de remessas e leitura de retorno atualizado para 2024/1",
   "keywords": [
     "dermevaldo",
