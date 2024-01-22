@@ -1,6 +1,5 @@
 <?php
-
-namespace Dermevaldo\Pagamento\Contracts\Cnab;
+namespace Murilo\Pagamento\Contracts\Cnab;
 
 interface Remessa extends Cnab
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Dermevaldo\Pagamento\Cnab\Retorno\Cnab240;
+namespace Murilo\Pagamento\Cnab\Retorno\Cnab240;
 
 use Exception;
-use Dermevaldo\Pagamento\Cnab\Retorno\AbstractRetorno as AbstractRetornoGeneric;
-use Dermevaldo\Pagamento\Contracts\Cnab\Retorno\Cnab240\HeaderLote as HeaderLoteContract;
-use Dermevaldo\Pagamento\Contracts\Cnab\Retorno\Cnab240\TrailerLote as TrailerLoteContract;
-use Dermevaldo\Pagamento\Support\Collection;
+use Murilo\Pagamento\Cnab\Retorno\AbstractRetorno as AbstractRetornoGeneric;
+use Murilo\Pagamento\Contracts\Cnab\Retorno\Cnab240\HeaderLote as HeaderLoteContract;
+use Murilo\Pagamento\Contracts\Cnab\Retorno\Cnab240\TrailerLote as TrailerLoteContract;
+use Murilo\Pagamento\Support\Collection;
 
 /**
  * Class AbstractRetorno

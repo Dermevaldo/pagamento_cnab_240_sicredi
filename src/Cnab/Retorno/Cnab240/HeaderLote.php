@@ -1,10 +1,10 @@
 <?php
 
-namespace Dermevaldo\Pagamento\Cnab\Retorno\Cnab240;
+namespace Murilo\Pagamento\Cnab\Retorno\Cnab240;
 
 use Carbon\Carbon;
-use Dermevaldo\Pagamento\Contracts\Cnab\Retorno\Cnab240\HeaderLote as HeaderLoteContract;
-use Dermevaldo\Pagamento\Traits\MagicTrait;
+use Murilo\Pagamento\Contracts\Cnab\Retorno\Cnab240\HeaderLote as HeaderLoteContract;
+use Murilo\Pagamento\Traits\MagicTrait;
 
 /**
  * Class HeaderLote

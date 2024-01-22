@@ -1,6 +1,6 @@
 <?php
 
-namespace Dermevaldo\Pagamento\Traits;
+namespace Murilo\Pagamento\Traits;
 
 use Closure;
 use BadMethodCallException;

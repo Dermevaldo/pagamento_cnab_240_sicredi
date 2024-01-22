@@ -1,6 +1,6 @@
 <?php
 
-namespace Dermevaldo\Pagamento\Contracts\Boleto\Render;
+namespace Murilo\Pagamento\Contracts\Boleto\Render;
 
 /**
  * Interface Pdf

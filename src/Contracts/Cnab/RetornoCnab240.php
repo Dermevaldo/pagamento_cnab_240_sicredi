@@ -1,8 +1,8 @@
 <?php
 
-namespace Dermevaldo\Pagamento\Contracts\Cnab;
+namespace Murilo\Pagamento\Contracts\Cnab;
 
-use Dermevaldo\Pagamento\Support\Collection;
+use Murilo\Pagamento\Support\Collection;
 
 interface RetornoCnab240 extends Cnab
 {

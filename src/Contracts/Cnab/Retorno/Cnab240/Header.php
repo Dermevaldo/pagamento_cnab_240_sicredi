@@ -1,6 +1,5 @@
 <?php
-
-namespace Dermevaldo\Pagamento\Contracts\Cnab\Retorno\Cnab240;
+namespace Murilo\Pagamento\Contracts\Cnab\Retorno\Cnab240;
 
 interface Header
 {

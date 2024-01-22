@@ -1,6 +1,6 @@
 <?php
 
-namespace Dermevaldo\Pagamento\Contracts;
+namespace Murilo\Pagamento\Contracts;
 
 /**
  * Interface Pessoa

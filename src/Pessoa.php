@@ -1,9 +1,9 @@
 <?php
 
-namespace Dermevaldo\Pagamento;
+namespace Murilo\Pagamento;
 
 use Exception;
-use Dermevaldo\Pagamento\Contracts\Pessoa as PessoaContract;
+use Murilo\Pagamento\Contracts\Pessoa as PessoaContract;
 
 /**
  * Class Pessoa

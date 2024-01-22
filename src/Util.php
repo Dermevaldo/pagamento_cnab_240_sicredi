@@ -1,6 +1,6 @@
 <?php
 
-namespace Dermevaldo\Pagamento;
+namespace Murilo\Pagamento;
 
 use Carbon\Carbon;
 use Exception;

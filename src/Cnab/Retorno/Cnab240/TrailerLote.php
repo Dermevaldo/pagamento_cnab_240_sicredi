@@ -1,9 +1,9 @@
 <?php
 
-namespace Dermevaldo\Pagamento\Cnab\Retorno\Cnab240;
+namespace Murilo\Pagamento\Cnab\Retorno\Cnab240;
 
-use Dermevaldo\Pagamento\Contracts\Cnab\Retorno\Cnab240\TrailerLote as TrailerLoteContract;
-use Dermevaldo\Pagamento\Traits\MagicTrait;
+use Murilo\Pagamento\Contracts\Cnab\Retorno\Cnab240\TrailerLote as TrailerLoteContract;
+use Murilo\Pagamento\Traits\MagicTrait;
 
 /**
  * Class TrailerLote

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dermevaldo\Pagamento\Support;
+namespace Murilo\Pagamento\Support;
 
 use Countable;
 use ArrayAccess;
@@ -10,7 +10,7 @@ use CachingIterator;
 use JsonSerializable;
 use IteratorAggregate;
 use InvalidArgumentException;
-use Dermevaldo\Pagamento\Traits\Macroable;
+use Murilo\Pagamento\Traits\Macroable;
 
 /**
  * Class Collection
