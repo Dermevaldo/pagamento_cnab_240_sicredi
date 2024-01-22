@@ -1,9 +1,9 @@
 <?php
 
-namespace Murilo\Pagamento\Contracts\Boleto;
+namespace Dermevaldo\Pagamento\Contracts\Boleto;
 
 use Carbon\Carbon;
-use Murilo\Pagamento\Contracts\Pessoa as PessoaContract;
+use Dermevaldo\Pagamento\Contracts\Pessoa as PessoaContract;
 
 /**
  * Interface Boleto

@@ -1,9 +1,9 @@
 <?php
 
-namespace Murilo\Pagamento\Pagamento\Banco;
+namespace Dermevaldo\Pagamento\Pagamento\Banco;
 
-use Murilo\Pagamento\Contracts\Pagamento\Pagamento as PagamentoContract;
-use Murilo\Pagamento\Pagamento\AbstractPagamento;
+use Dermevaldo\Pagamento\Contracts\Pagamento\Pagamento as PagamentoContract;
+use Dermevaldo\Pagamento\Pagamento\AbstractPagamento;
 
 /**
  * Class Sicredi

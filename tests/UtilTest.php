@@ -1,6 +1,6 @@
 <?php
 
-namespace Murilo\Pagamento;
+namespace Dermevaldo\Pagamento;
 
 use Carbon\Carbon;
 use PHPUnit\Framework\TestCase;

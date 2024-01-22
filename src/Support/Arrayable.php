@@ -1,6 +1,6 @@
 <?php
 
-namespace Murilo\Pagamento\Support;
+namespace Dermevaldo\Pagamento\Support;
 
 /**
  * Interface Arrayable

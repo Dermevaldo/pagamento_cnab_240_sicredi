@@ -1,10 +1,10 @@
 <?php
 
-namespace Murilo\Pagamento\Cnab\Retorno;
+namespace Dermevaldo\Pagamento\Cnab\Retorno;
 
 use Exception;
-use Murilo\Pagamento\Contracts\Boleto\Boleto as BoletoContract;
-use Murilo\Pagamento\Util;
+use Dermevaldo\Pagamento\Contracts\Boleto\Boleto as BoletoContract;
+use Dermevaldo\Pagamento\Util;
 
 /**
  * Class Factory

@@ -1,9 +1,9 @@
 <?php
 
-namespace Murilo\Pagamento\Contracts\Cnab\Retorno;
+namespace Dermevaldo\Pagamento\Contracts\Cnab\Retorno;
 
-use Murilo\Pagamento\Contracts\Pessoa as PessoaContract;
-use Murilo\Pagamento\Contracts\Conta as ContaContract;
+use Dermevaldo\Pagamento\Contracts\Pessoa as PessoaContract;
+use Dermevaldo\Pagamento\Contracts\Conta as ContaContract;
 
 /**
  * Interface Detalhe

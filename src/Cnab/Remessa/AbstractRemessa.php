@@ -1,13 +1,13 @@
 <?php
 
-namespace Murilo\Pagamento\Cnab\Remessa;
+namespace Dermevaldo\Pagamento\Cnab\Remessa;
 
 use Exception;
-use Murilo\Pagamento\Contracts\Boleto\Boleto as BoletoContract;
-use Murilo\Pagamento\Contracts\Pessoa as PessoaContract;
-use Murilo\Pagamento\Contracts\Pagamento\Pagamento as PagamentoContract;
-use Murilo\Pagamento\Support\Collection;
-use Murilo\Pagamento\Util;
+use Dermevaldo\Pagamento\Contracts\Boleto\Boleto as BoletoContract;
+use Dermevaldo\Pagamento\Contracts\Pessoa as PessoaContract;
+use Dermevaldo\Pagamento\Contracts\Pagamento\Pagamento as PagamentoContract;
+use Dermevaldo\Pagamento\Support\Collection;
+use Dermevaldo\Pagamento\Util;
 
 /**
  * Class AbstractRemessa

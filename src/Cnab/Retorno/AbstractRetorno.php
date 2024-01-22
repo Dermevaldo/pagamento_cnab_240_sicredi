@@ -1,13 +1,13 @@
 <?php
 
-namespace Murilo\Pagamento\Cnab\Retorno;
+namespace Dermevaldo\Pagamento\Cnab\Retorno;
 
 use Exception;
-use Murilo\Pagamento\Contracts\Cnab\Retorno\Cnab240\Detalhe as Detalhe240Contract;
-use Murilo\Pagamento\Contracts\Cnab\Retorno\Cnab240\Header as Header240Contract;
-use Murilo\Pagamento\Contracts\Cnab\Retorno\Cnab240\Trailer as Trailer240Contract;
-use Murilo\Pagamento\Support\Collection;
-use Murilo\Pagamento\Util;
+use Dermevaldo\Pagamento\Contracts\Cnab\Retorno\Cnab240\Detalhe as Detalhe240Contract;
+use Dermevaldo\Pagamento\Contracts\Cnab\Retorno\Cnab240\Header as Header240Contract;
+use Dermevaldo\Pagamento\Contracts\Cnab\Retorno\Cnab240\Trailer as Trailer240Contract;
+use Dermevaldo\Pagamento\Support\Collection;
+use Dermevaldo\Pagamento\Util;
 use OutOfBoundsException;
 
 /**

@@ -1,9 +1,9 @@
 <?php
 
-namespace Murilo\Pagamento\Contracts\Pagamento;
+namespace Dermevaldo\Pagamento\Contracts\Pagamento;
 
 use Carbon\Carbon;
-use Murilo\Pagamento\Contracts\Pessoa as PessoaContract;
+use Dermevaldo\Pagamento\Contracts\Pessoa as PessoaContract;
 
 /**
  * Interface Pagamento

@@ -1,5 +1,6 @@
 <?php
-namespace Murilo\Pagamento\Contracts\Cnab;
+
+namespace Dermevaldo\Pagamento\Contracts\Cnab;
 
 interface Cnab
 {

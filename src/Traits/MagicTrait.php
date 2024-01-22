@@ -1,6 +1,6 @@
 <?php
 
-namespace Murilo\Pagamento\Traits;
+namespace Dermevaldo\Pagamento\Traits;
 
 /**
  * Trait MagicTrait

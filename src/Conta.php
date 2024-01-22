@@ -1,9 +1,9 @@
 <?php
 
-namespace Murilo\Pagamento;
+namespace Dermevaldo\Pagamento;
 
-use Murilo\Pagamento\Contracts\Conta as ContaContract;
-use Murilo\Pagamento\Contracts\Pessoa as PessoaContract;
+use Dermevaldo\Pagamento\Contracts\Conta as ContaContract;
+use Dermevaldo\Pagamento\Contracts\Pessoa as PessoaContract;
 
 /**
  * Class Conta

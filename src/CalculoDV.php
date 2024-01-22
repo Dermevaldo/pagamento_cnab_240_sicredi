@@ -1,5 +1,6 @@
 <?php
-namespace Murilo\Pagamento;
+
+namespace Dermevaldo\Pagamento;
 
 class CalculoDV
 {
@@ -39,8 +40,8 @@ class CalculoDV
     {
         $conta = sprintf('%03s%09s', self::bnbAgenciaReal($agencia), $conta);
         $dv = Util::modulo11($conta, 2, 9, 1);
-        if($dv > 1) {
-            return 11-$dv;
+        if ($dv > 1) {
+            return 11 - $dv;
         }
         return 0;
     }
@@ -50,7 +51,8 @@ class CalculoDV
         return Util::modulo11(Util::numberFormatGeral($nossoNumero, 7));
     }
 
-    private static function bnbAgenciaReal($agencia) {
+    private static function bnbAgenciaReal($agencia)
+    {
         $agenciaAntiga = [
             '1' => '99', '2' => '44', '3' => '74', '4' => '73', '5' => '81', '6' => '1',
             '7' => '2', '8' => '53', '9' => '46', '10' => '20', '11' => '82', '12' => '47',
@@ -90,7 +92,7 @@ class CalculoDV
         $sums = array_reverse(str_split('97310097131973', 1));
         $sum = 0;
         foreach ($chars as $i => $char) {
-            $sum += substr($char*$sums[$i], -1);
+            $sum += substr($char * $sums[$i], -1);
         }
         $unidade = substr($sum, -1);
         return $unidade == 0 ? $unidade : 10 - $unidade;
@@ -123,7 +125,7 @@ class CalculoDV
             $dv2 = Util::modulo11($agencia . $dv1, 2, 7);
         }
 
-        return $dv1.$dv2;
+        return $dv1 . $dv2;
     }
 
     public static function banrisulContaCorrente($contaCorrente)
@@ -133,10 +135,10 @@ class CalculoDV
 
         $sum = 0;
         foreach ($chars as $i => $char) {
-            $sum += $char*$sums[$i];
+            $sum += $char * $sums[$i];
         }
 
-        $resto = $sum%11;
+        $resto = $sum % 11;
 
         if ($resto == 0) {
             return $resto;
@@ -195,7 +197,7 @@ class CalculoDV
         $dv = Util::modulo11($agencia, 2, 9, 0, 'P');
         return $dv == 11 ? 0 : $dv;
     }
-    
+
     public static function bradescoContaCorrente($contaCorrente)
     {
         return Util::modulo11($contaCorrente, 2, 9, 0, 'P');
@@ -263,7 +265,7 @@ class CalculoDV
         $sums = str_split('3197319731973197319731973197', 1);
         $sum = 0;
         foreach ($chars as $i => $char) {
-            $sum += $char*$sums[$i];
+            $sum += $char * $sums[$i];
         }
         $resto = $sum % 11;
         $dv = 0;

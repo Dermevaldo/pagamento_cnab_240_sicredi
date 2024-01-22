@@ -1,14 +1,14 @@
 <?php
 
-namespace Murilo\Pagamento\Cnab\Retorno\Cnab240;
+namespace Dermevaldo\Pagamento\Cnab\Retorno\Cnab240;
 
 use Carbon\Carbon;
 use Exception;
-use Murilo\Pagamento\Contracts\Cnab\Retorno\Cnab240\Detalhe as DetalheContract;
-use Murilo\Pagamento\Contracts\Pessoa as PessoaContract;
-use Murilo\Pagamento\Contracts\Conta as ContaContract;
-use Murilo\Pagamento\Traits\MagicTrait;
-use Murilo\Pagamento\Util;
+use Dermevaldo\Pagamento\Contracts\Cnab\Retorno\Cnab240\Detalhe as DetalheContract;
+use Dermevaldo\Pagamento\Contracts\Pessoa as PessoaContract;
+use Dermevaldo\Pagamento\Contracts\Conta as ContaContract;
+use Dermevaldo\Pagamento\Traits\MagicTrait;
+use Dermevaldo\Pagamento\Util;
 
 /**
  * Class Detalhe

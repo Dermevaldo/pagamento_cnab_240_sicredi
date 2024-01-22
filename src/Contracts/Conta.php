@@ -1,8 +1,8 @@
 <?php
 
-namespace Murilo\Pagamento\Contracts;
+namespace Dermevaldo\Pagamento\Contracts;
 
-use Murilo\Pagamento\Contracts\Pessoa as PessoaContract;
+use Dermevaldo\Pagamento\Contracts\Pessoa as PessoaContract;
 
 /**
  * Interface Conta
