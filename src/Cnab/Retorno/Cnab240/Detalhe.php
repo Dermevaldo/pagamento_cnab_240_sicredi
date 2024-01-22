@@ -1,5 +1,4 @@
 <?php
-
 namespace Murilo\Pagamento\Cnab\Retorno\Cnab240;
 
 use Carbon\Carbon;
@@ -12,7 +11,7 @@ use Murilo\Pagamento\Util;
 
 /**
  * Class Detalhe
- * @package Dermevaldo\Pagamento\Cnab\Retorno\Cnab240
+ * @package Murilo\Pagamento\Cnab\Retorno\Cnab240
  */
 class Detalhe implements DetalheContract
 {

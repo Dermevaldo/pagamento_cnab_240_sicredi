@@ -8,7 +8,7 @@ use Murilo\Pagamento\Traits\MagicTrait;
 
 /**
  * Class Header
- * @package Dermevaldo\Pagamento\Cnab\Retorno\Cnab240
+ * @package Murilo\Pagamento\Cnab\Retorno\Cnab240
  */
 class Header implements HeaderContract
 {

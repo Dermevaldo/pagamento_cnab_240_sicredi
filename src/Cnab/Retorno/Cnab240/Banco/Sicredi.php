@@ -1,5 +1,4 @@
 <?php
-
 namespace Murilo\Pagamento\Cnab\Retorno\Cnab240\Banco;
 
 use Exception;
@@ -12,7 +11,7 @@ use Murilo\Pagamento\Util;
 
 /**
  * Class Sicredi
- * @package Dermevaldo\Pagamento\Cnab\Retorno\Cnab240\Banco
+ * @package Murilo\Pagamento\Cnab\Retorno\Cnab240\Banco
  */
 class Sicredi extends AbstractRetorno implements RetornoCnab240
 {
@@ -244,7 +243,7 @@ class Sicredi extends AbstractRetorno implements RetornoCnab240
                 ->setNossoNumero($this->rem(135, 154, $detalhe))
                 ->setNumeroDocumento($this->rem(74, 93, $detalhe))
                 ->setDataCredito($this->rem(94, 101, $detalhe))
-                ->setValor(Util::nFloat($this->rem(120, 134, $detalhe) / 100, 2, false));
+                ->setValor(Util::nFloat($this->rem(120, 134, $detalhe)/100, 2, false));
 
             $d->getContaFavorecido()->getPessoa()->setNome($this->rem(44, 73, $detalhe));
             $d->getContaFavorecido()
@@ -253,14 +252,15 @@ class Sicredi extends AbstractRetorno implements RetornoCnab240
                 ->setAgenciaDv($this->rem(29, 29, $detalhe))
                 ->setConta($this->rem(30, 41, $detalhe))
                 ->setContaDv($this->rem(42, 42, $detalhe));
+
         }
 
         if ($this->getSegmentType($detalhe) == 'B') {
             $d->setDataVencimento($this->rem(128, 135, $detalhe))
-                ->setValorAbatimento(Util::nFloat($this->rem(151, 165, $detalhe) / 100, 2, false))
-                ->setValorDesconto(Util::nFloat($this->rem(166, 180, $detalhe) / 100, 2, false))
-                ->setValorMora(Util::nFloat($this->rem(181, 195, $detalhe) / 100, 2, false))
-                ->setValorMulta(Util::nFloat($this->rem(196, 210, $detalhe) / 100, 2, false));
+                ->setValorAbatimento(Util::nFloat($this->rem(151, 165, $detalhe)/100, 2, false))
+                ->setValorDesconto(Util::nFloat($this->rem(166, 180, $detalhe)/100, 2, false))
+                ->setValorMora(Util::nFloat($this->rem(181, 195, $detalhe)/100, 2, false))
+                ->setValorMulta(Util::nFloat($this->rem(196, 210, $detalhe)/100, 2, false));
 
             $documento = $this->rem(19, 32, $detalhe);
 
@@ -288,10 +288,10 @@ class Sicredi extends AbstractRetorno implements RetornoCnab240
         }
 
         if ($this->getSegmentType($detalhe) == 'U') {
-            $d->setValorDesconto(Util::nFloat($this->rem(33, 47, $detalhe) / 100, 2, false))
-                ->setValorAbatimento(Util::nFloat($this->rem(48, 62, $detalhe) / 100, 2, false))
-                ->setValorIOF(Util::nFloat($this->rem(63, 77, $detalhe) / 100, 2, false))
-                ->setValorRecebido(Util::nFloat($this->rem(93, 107, $detalhe) / 100, 2, false))
+            $d->setValorDesconto(Util::nFloat($this->rem(33, 47, $detalhe)/100, 2, false))
+                ->setValorAbatimento(Util::nFloat($this->rem(48, 62, $detalhe)/100, 2, false))
+                ->setValorIOF(Util::nFloat($this->rem(63, 77, $detalhe)/100, 2, false))
+                ->setValorRecebido(Util::nFloat($this->rem(93, 107, $detalhe)/100, 2, false))
                 ->setDataOcorrencia($this->rem(138, 145, $detalhe))
                 ->setDataCredito($this->rem(146, 153, $detalhe));
         }
@@ -341,7 +341,7 @@ class Sicredi extends AbstractRetorno implements RetornoCnab240
             ->setLoteServico($this->rem(4, 7, $trailer))
             ->setTipoRegistro($this->rem(8, 8, $trailer))
             ->setQtdRegistroLote((int) $this->rem(18, 23, $trailer))
-            ->setValorTotalTitulos(Util::nFloat($this->rem(24, 41, $trailer) / 100, 2, false));
+            ->setValorTotalTitulos(Util::nFloat($this->rem(24, 41, $trailer)/100, 2, false));
 
         return true;
     }

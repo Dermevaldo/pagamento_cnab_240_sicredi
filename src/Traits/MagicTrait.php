@@ -1,10 +1,9 @@
 <?php
-
 namespace Murilo\Pagamento\Traits;
 
 /**
  * Trait MagicTrait
- * @package Dermevaldo\Pagamento
+ * @package Murilo\Pagamento
  */
 trait MagicTrait
 {

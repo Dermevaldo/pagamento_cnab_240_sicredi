@@ -11,7 +11,7 @@ use Murilo\Pagamento\Util;
 
 /**
  * Class Bancoob
- * @package Dermevaldo\Pagamento\Cnab\Remessa\Cnab240\Banco
+ * @package Murilo\Pagamento\Cnab\Remessa\Cnab240\Banco
  */
 class Bancoob extends AbstractRemessa implements RemessaContract
 {

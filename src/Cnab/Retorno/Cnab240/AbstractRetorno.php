@@ -15,7 +15,7 @@ use Murilo\Pagamento\Support\Collection;
  * @method  Header getHeader()
  * @method  Trailer getTrailer()
  * @method  Detalhe detalheAtual()
- * @package Dermevaldo\Pagamento\Cnab\Retorno\Cnab240
+ * @package Murilo\Pagamento\Cnab\Retorno\Cnab240
  */
 abstract class AbstractRetorno extends AbstractRetornoGeneric
 {
@@ -128,10 +128,8 @@ abstract class AbstractRetorno extends AbstractRetornoGeneric
             } elseif ($recordType == '1') {
                 $this->processarHeaderLote($linha);
             } elseif ($recordType == '3') {
-                if (
-                    $this->getSegmentType($linha) == 'T'
-                    || ($this->getSegmentType($linha) == 'A' && $this->getHeader()->getCodigoRemessaRetorno() == 2)
-                ) {
+                if ($this->getSegmentType($linha) == 'T'
+                    || ($this->getSegmentType($linha) == 'A' && $this->getHeader()->getCodigoRemessaRetorno() == 2)) {
                     $this->incrementDetalhe();
                 }
 

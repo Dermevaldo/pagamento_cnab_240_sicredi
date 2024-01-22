@@ -7,7 +7,7 @@ use Murilo\Pagamento\Pagamento\AbstractPagamento;
 
 /**
  * Class Sicredi
- * @package Dermevaldo\Pagamento\Boleto\Banco
+ * @package Murilo\Pagamento\Boleto\Banco
  */
 class Sicredi extends AbstractPagamento implements PagamentoContract
 {
@@ -33,4 +33,5 @@ class Sicredi extends AbstractPagamento implements PagamentoContract
 
         return Sicredi::INCLUSAO_REGISTRO_LIBERADO;
     }
+
 }

@@ -7,7 +7,7 @@ use Murilo\Pagamento\Contracts\Conta as ContaContract;
 
 /**
  * Interface Detalhe
- * @package Dermevaldo\Pagamento\Contracts\Cnab\Retorno
+ * @package Murilo\Pagamento\Contracts\Cnab\Retorno
  */
 interface Detalhe
 {

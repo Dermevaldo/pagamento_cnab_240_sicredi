@@ -11,7 +11,7 @@ use Murilo\Pagamento\Util;
 
 /**
  * Class AbstractRemessa
- * @package Dermevaldo\Pagamento\Cnab\Remessa
+ * @package Murilo\Pagamento\Cnab\Remessa
  */
 abstract class AbstractRemessa
 {

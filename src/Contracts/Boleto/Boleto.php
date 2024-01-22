@@ -7,7 +7,7 @@ use Murilo\Pagamento\Contracts\Pessoa as PessoaContract;
 
 /**
  * Interface Boleto
- * @package Dermevaldo\Pagamento\Contracts\Boleto
+ * @package Murilo\Pagamento\Contracts\Boleto
  */
 interface Boleto
 {

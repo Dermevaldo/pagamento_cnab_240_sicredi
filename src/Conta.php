@@ -1,5 +1,4 @@
 <?php
-
 namespace Murilo\Pagamento;
 
 use Murilo\Pagamento\Contracts\Conta as ContaContract;
@@ -7,7 +6,7 @@ use Murilo\Pagamento\Contracts\Pessoa as PessoaContract;
 
 /**
  * Class Conta
- * @package Dermevaldo\Pagamento
+ * @package Murilo\Pagamento
  */
 class Conta implements ContaContract
 {
