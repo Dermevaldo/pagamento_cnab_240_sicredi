@@ -1,18 +1,18 @@
 {
-  "name": "murilosandiego/pagamento",
-  "description": "Pacote para gerar pagamentos através de arquivos de remessas e leitura de retorno. Fork do projeto yii2-boleto-remessa",
+  "name": "dermevaldo/pagamento_cnab_240_sicredi",
+  "description": "Fork do murilosandiego.Pacote para gerar pagamentos através de arquivos de remessas e leitura de retorno atualizado para 2024/1",
   "keywords": [
-    "murilosandiego",
+    "dermevaldo",
     "pagamento",
     "remessa",
     "retorno"
   ],
-  "homepage": "https://github.com/murilosandiego/pagamento",
+  "homepage": "https://github.com/Dermevaldo/pagamento_cnab_240_sicredi",
   "license": "MIT",
   "authors": [
     {
-      "name": "Murilo Sandiego Ferreira",
-      "email": "contato@murilosandiego.com.br"
+      "name": "Dermevaldo Dias Marques",
+      "email": "dermevaldopro@gmail.com"
     }
   ],
   "require": {
@@ -26,13 +26,13 @@
   },
   "autoload": {
     "psr-4": {
-      "Murilo\\Pagamento\\": "src"
+      "Dermevaldo\\Pagamento\\": "src"
     },
     "files": ["src/helpers.php"]
   },
   "autoload-dev": {
     "psr-4": {
-      "Murilo\\Pagamento\\Tests\\": "tests"
+      "Dermevaldo\\Pagamento\\Tests\\": "tests"
     }
   },
   "scripts": {
