@@ -12,7 +12,7 @@ use Exception;
  * @TODO validar processar
  * @TODO validar float nos numeros
  *
- * @package Murilo\Pagamento
+ * @package Dermevaldo\Pagamento
  */
 final class Util
 {
@@ -551,7 +551,8 @@ final class Util
         $even = array_map(
             function ($n) {
                 return ($n >= 5) ? 2 * $n - 9 : 2 * $n;
-            }, $even
+            },
+            $even
         );
         $total = array_sum($odd) + array_sum($even);
         return ((floor($total / 10) + 1) * 10 - $total) % 10;
@@ -722,7 +723,8 @@ final class Util
         $retorno = array_map(
             function ($a) {
                 return implode('', $a);
-            }, $retorno
+            },
+            $retorno
         );
 
         return implode("\r\n", $retorno);

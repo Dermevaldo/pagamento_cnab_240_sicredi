@@ -1,4 +1,5 @@
 <?php
+
 namespace Murilo\Pagamento\Cnab\Retorno;
 
 use Exception;
@@ -11,7 +12,7 @@ use OutOfBoundsException;
 
 /**
  * Class AbstractRetorno
- * @package Murilo\Pagamento\Cnab\Retorno
+ * @package Dermevaldo\Pagamento\Cnab\Retorno
  */
 abstract class AbstractRetorno implements \Countable, \SeekableIterator
 {

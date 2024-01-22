@@ -7,7 +7,7 @@ use Murilo\Pagamento\Traits\MagicTrait;
 
 /**
  * Class TrailerLote
- * @package Murilo\Pagamento\Cnab\Retorno\Cnab240
+ * @package Dermevaldo\Pagamento\Cnab\Retorno\Cnab240
  */
 class TrailerLote implements TrailerLoteContract
 {

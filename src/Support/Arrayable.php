@@ -4,7 +4,7 @@ namespace Murilo\Pagamento\Support;
 
 /**
  * Interface Arrayable
- * @package Murilo\Pagamento\Support
+ * @package Dermevaldo\Pagamento\Support
  */
 interface Arrayable
 {

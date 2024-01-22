@@ -7,7 +7,7 @@ use BadMethodCallException;
 
 /**
  * Trait Macroable
- * @package Murilo\Pagamento\Traits
+ * @package Dermevaldo\Pagamento\Traits
  */
 trait Macroable
 {

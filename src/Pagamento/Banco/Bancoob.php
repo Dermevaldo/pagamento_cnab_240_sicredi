@@ -7,7 +7,7 @@ use Murilo\Pagamento\Pagamento\AbstractPagamento;
 
 /**
  * Class Sicoob
- * @package Murilo\Pagamento\Boleto\Banco
+ * @package Dermevaldo\Pagamento\Boleto\Banco
  */
 class Bancoob extends AbstractPagamento implements PagamentoContract
 {
@@ -33,5 +33,4 @@ class Bancoob extends AbstractPagamento implements PagamentoContract
 
         return self::INCLUSAO_REGISTRO_LIBERADO;
     }
-
 }

@@ -6,7 +6,7 @@ use Murilo\Pagamento\Contracts\Pessoa as PessoaContract;
 
 /**
  * Interface Conta
- * @package Murilo\Pagamento\Contracts
+ * @package Dermevaldo\Pagamento\Contracts
  */
 interface Conta
 {
@@ -44,5 +44,4 @@ interface Conta
      * @return PessoaContract
      */
     public function getPessoa();
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Murilo\Pagamento\Cnab\Retorno;
 
 use Exception;
@@ -7,7 +8,7 @@ use Murilo\Pagamento\Util;
 
 /**
  * Class Factory
- * @package Murilo\Pagamento\Cnab\Retorno
+ * @package Dermevaldo\Pagamento\Cnab\Retorno
  */
 class Factory
 {

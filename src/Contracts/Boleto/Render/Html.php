@@ -4,7 +4,7 @@ namespace Murilo\Pagamento\Contracts\Boleto\Render;
 
 /**
  * Interface Html
- * @package Murilo\Pagamento\Contracts\Boleto\Render
+ * @package Dermevaldo\Pagamento\Contracts\Boleto\Render
  */
 interface Html
 {

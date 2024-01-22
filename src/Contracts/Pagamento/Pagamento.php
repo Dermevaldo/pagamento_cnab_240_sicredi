@@ -7,7 +7,7 @@ use Murilo\Pagamento\Contracts\Pessoa as PessoaContract;
 
 /**
  * Interface Pagamento
- * @package Murilo\Pagamento\Contracts\Pagamento
+ * @package Dermevaldo\Pagamento\Contracts\Pagamento
  */
 interface Pagamento
 {
@@ -95,5 +95,4 @@ interface Pagamento
      * @return mixed
      */
     public function getValor();
-
 }

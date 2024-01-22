@@ -1,9 +1,10 @@
 <?php
+
 namespace Murilo\Pagamento\Contracts;
 
 /**
  * Interface Pessoa
- * @package Murilo\Pagamento\Contracts
+ * @package Dermevaldo\Pagamento\Contracts
  */
 interface Pessoa
 {

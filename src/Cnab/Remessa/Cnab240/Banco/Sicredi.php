@@ -11,7 +11,7 @@ use Murilo\Pagamento\Util;
 
 /**
  * Class Sicredi
- * @package Murilo\Pagamento\Cnab\Remessa\Cnab240\Banco
+ * @package Dermevaldo\Pagamento\Cnab\Remessa\Cnab240\Banco
  */
 class Sicredi extends AbstractRemessa implements RemessaContract
 {

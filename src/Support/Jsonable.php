@@ -4,7 +4,7 @@ namespace Murilo\Pagamento\Support;
 
 /**
  * Interface Jsonable
- * @package Murilo\Pagamento\Support
+ * @package Dermevaldo\Pagamento\Support
  */
 interface Jsonable
 {

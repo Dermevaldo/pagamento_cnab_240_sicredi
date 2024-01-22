@@ -14,7 +14,7 @@ use Murilo\Pagamento\Traits\Macroable;
 
 /**
  * Class Collection
- * @package Murilo\Pagamento\Traits
+ * @package Dermevaldo\Pagamento\Traits
  */
 class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate, Jsonable, JsonSerializable
 {

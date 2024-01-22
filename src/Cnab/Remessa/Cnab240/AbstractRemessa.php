@@ -1,4 +1,5 @@
 <?php
+
 namespace Murilo\Pagamento\Cnab\Remessa\Cnab240;
 
 use Exception;
@@ -6,7 +7,7 @@ use Murilo\Pagamento\Cnab\Remessa\AbstractRemessa as AbstractRemessaGeneric;
 
 /**
  * Class AbstractRemessa
- * @package Murilo\Pagamento\Cnab\Remessa\Cnab240
+ * @package Dermevaldo\Pagamento\Cnab\Remessa\Cnab240
  */
 abstract class AbstractRemessa extends AbstractRemessaGeneric
 {

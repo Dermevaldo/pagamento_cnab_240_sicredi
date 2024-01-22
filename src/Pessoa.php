@@ -1,4 +1,5 @@
 <?php
+
 namespace Murilo\Pagamento;
 
 use Exception;
@@ -6,7 +7,7 @@ use Murilo\Pagamento\Contracts\Pessoa as PessoaContract;
 
 /**
  * Class Pessoa
- * @package Murilo\Pagamento
+ * @package Dermevaldo\Pagamento
  */
 class Pessoa implements PessoaContract
 {
