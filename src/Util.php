@@ -883,7 +883,7 @@ final class Util
      */
     public static function addPessoa(&$property, $obj)
     {
-        if (is_subclass_of($obj, 'Murilo\\Pagamento\\Contracts\\Pessoa')) {
+        if (is_subclass_of($obj, 'Dermevaldo\\Pagamento\\Contracts\\Pessoa')) {
             $property = $obj;
             return $obj;
         } elseif (is_array($obj)) {
@@ -902,7 +902,7 @@ final class Util
      */
     public static function addConta(&$property, $obj)
     {
-        if (is_subclass_of($obj, 'Murilo\\Pagamento\\Contracts\\Conta')) {
+        if (is_subclass_of($obj, 'Dermevaldo\\Pagamento\\Contracts\\Conta')) {
             $property = $obj;
             return $obj;
         } elseif (is_array($obj)) {
