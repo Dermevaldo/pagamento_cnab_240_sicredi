@@ -168,7 +168,7 @@ class Bancoob extends AbstractRemessa implements RemessaContract
         $this->add(14, 14, Util::formatCnab('9', 'A', 1)); // Código de segmento do reg. detalhe
         $this->add(15, 15, Util::formatCnab('9', $pagamento->getTipoMovimento(), 1)); // Código de segmento do reg. detalhe
         $this->add(16, 17, Util::formatCnab(9, $pagamento->getTipoMovimento(), 2)); // Código de movimento remessa
-        $this->add(18, 20, Util::formatCnab(9, '888', 3));
+        $this->add(18, 20, Util::formatCnab(9, '018', 3));
         $this->add(21, 23, Util::formatCnab(9, $pagamento->getBanco(), 3)); // Numero da conta corrente
         $this->add(24, 28, Util::formatCnab(9, $pagamento->getAgencia(), 5)); // Numero da conta corrente
         $this->add(29, 29, Util::formatCnab('X', $pagamento->getAgenciaDv(), 1)); // Numero da conta corrente
