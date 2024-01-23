@@ -179,7 +179,7 @@ class Sicredi extends AbstractRemessa implements RemessaContract
         $this->add(120, 134, Util::formatCnab(9, $pagamento->getValor(), 15, 2)); // Valor do pagamento/Valor nominal do título
         $this->add(135, 154, Util::formatCnab('X', '', 20)); //No do docum. atribuído pelo banco
         $this->add(155, 162, Util::formatCnab(9, 0, 8)); //Data real/Data real da efetivação pagto
-        $this->add(163, 177, Util::formatCnab(9, 0, 13)); //Valor real/Valor real da efetivação do pagto
+        $this->add(163, 177, Util::formatCnab(9, 0, 15)); //Valor real/Valor real da efetivação do pagto
         $this->add(178, 217, ''); // Reservado (Uso Banco)/Outras informações – vide formatação em G031 para identificação de depósito judicial e pagto. salários de servidores pelo SIAPE
         $this->add(218, 219, ''); // Reservado (Uso Banco)/Compl. tipo serviço
         $this->add(220, 224, Util::formatCnab('X', $pagamento->getFinalidade(), 5)); // Reservado (Uso Banco)/Código finalidade da TED
