@@ -264,7 +264,7 @@ class Bancoob extends AbstractRemessa implements RemessaContract
         $this->add(144, 151, date('dmY')); // Data de Geracao do arquivo
         $this->add(152, 157, date('His')); // Reservado (Uso Banco)
         $this->add(158, 163, Util::formatCnab(9, $this->getIdremessa(), 6)); // Numero Sequencial do arquivo
-        $this->add(164, 166, Util::formatCnab('9', '087', 3)); // Versão do layout
+        $this->add(164, 166, Util::formatCnab('9', '081', 3)); // Versão do layout
         $this->add(167, 171, Util::formatCnab('9', '1600', 5)); // Versão do layout
         $this->add(172, 240, ''); // Reservado (Uso Banco)
 
