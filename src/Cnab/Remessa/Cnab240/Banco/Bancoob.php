@@ -163,7 +163,7 @@ class Bancoob extends AbstractRemessa implements RemessaContract
         $this->iniciaDetalhe();
         $this->add(1, 3, Util::onlyNumbers($this->getCodigoBanco())); //Código do Banco
         $this->add(4, 7, Util::formatCnab(9, 0001, 4)); // Numero do lote remessa
-        $this->add(8, 8, Util::formatCnab(9, 3, 1)); // Numero do lote remessa
+        $this->add(8, 8, Util::formatCnab(9, 1, 1)); // Numero do lote remessa
         $this->add(9, 13, Util::formatCnab(9, $nSequencialLote, 5)); // Nº sequencial do registro de lote
         $this->add(14, 14, Util::formatCnab('9', 'A', 1)); // Código de segmento do reg. detalhe
         $this->add(15, 15, Util::formatCnab('9', $pagamento->getTipoMovimento(), 1)); // Código de segmento do reg. detalhe
@@ -210,7 +210,7 @@ class Bancoob extends AbstractRemessa implements RemessaContract
         $this->add(4, 7, Util::formatCnab(9, 0001, 4)); // Numero do lote remessa
         $this->add(8, 8, Util::formatCnab(9, 3, 1)); // Numero do lote remessa
         $this->add(9, 13, Util::formatCnab(9, $nSequencialLote, 5)); // Nº sequencial do registro de lote
-        $this->add(14, 14, Util::formatCnab('X', 'B', 1)); // Nº sequencial do registro de lote
+        $this->add(14, 14, Util::formatCnab('X', 'B', 3)); // Nº sequencial do registro de lote
         $this->add(15, 17, ''); // Reservado (Uso Banco)
         $this->add(18, 18, strlen(Util::onlyNumbers($pagamento->getFavorecido()->getDocumento())) == 14 ? '2' : '1');
         $this->add(19, 32, Util::formatCnab(9, Util::onlyNumbers($pagamento->getFavorecido()->getDocumento()), 14)); // Número de inscrição do sacado
@@ -265,7 +265,7 @@ class Bancoob extends AbstractRemessa implements RemessaContract
         $this->add(152, 157, date('His')); // Reservado (Uso Banco)
         $this->add(158, 163, Util::formatCnab(9, $this->getIdremessa(), 6)); // Numero Sequencial do arquivo
         $this->add(164, 166, Util::formatCnab('9', '081', 3)); // Versão do layout
-        $this->add(167, 171, Util::formatCnab('9', '1600', 5)); // Versão do layout
+        $this->add(167, 171, Util::formatCnab('9', '0000', 5)); // Versão do layout
         $this->add(172, 240, ''); // Reservado (Uso Banco)
 
         return $this;
