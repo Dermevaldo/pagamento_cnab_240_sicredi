@@ -39,7 +39,7 @@ class Bancoob extends AbstractRemessa implements RemessaContract
     {
         parent::__construct($params);
         $this->addCampoObrigatorio(['codigoCliente', 'agenciaDv', 'idremessa']);
-        $this->somatorioValores = 0;
+        $this->somatorioValores = $params['somatorioValores'] ?? 0;
     }
 
     /**
