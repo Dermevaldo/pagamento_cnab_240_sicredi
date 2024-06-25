@@ -249,12 +249,12 @@ class Bancoob extends AbstractRemessa implements RemessaContract
         $this->add(9, 17, ''); // Reservados (Uso Banco)
         $this->add(18, 18, strlen(Util::onlyNumbers($this->getBeneficiario()->getDocumento())) == 14 ? '2' : '1'); // Tipo de inscrição da empresa
         $this->add(19, 32, Util::formatCnab('9L', $this->getBeneficiario()->getDocumento(), 14)); // Numero de inscrição da empresa
-        $this->add(33, 52, Util::formatCnab('X', '', 20)); // Código do convênio no banco
+        $this->add(33, 52, Util::formatCnab('X', $this->getCodigoCliente(), 20)); // Código do convênio no banco
         $this->add(53, 57, Util::formatCnab('9', $this->getAgencia(), 5)); // Agência mantenedora da conta
         $this->add(58, 58, Util::formatCnab('X', $this->getAgenciaDv(), 1)); // Dígito verificador da agência (Uso Branco)
         $this->add(59, 70, Util::formatCnab('9', $this->getConta(), 12)); // Número da conta corrente
         $this->add(71, 71, Util::formatCnab('9', $this->getContaDv(), 1)); // Dígito verificador da conta
-        $this->add(72, 72, '0'); // Dígito verificador da Ag/conta (Uso Banco)
+        $this->add(72, 72, ''); // Dígito verificador da Ag/conta (Uso Banco)
         $this->add(73, 102, Util::formatCnab('X', $this->getBeneficiario()->getNome(), 30)); // Nome da empresa
         $this->add(103, 132, Util::formatCnab('X', 'Sicoob', 30)); // Nome do Banco
         $this->add(133, 142, ''); // Reservados (Uso Banco)
@@ -262,7 +262,7 @@ class Bancoob extends AbstractRemessa implements RemessaContract
         $this->add(144, 151, date('dmY')); // Data de Geracao do arquivo
         $this->add(152, 157, date('His')); // Reservado (Uso Banco)
         $this->add(158, 163, Util::formatCnab(9, $this->getIdremessa(), 6)); // Numero Sequencial do arquivo
-        $this->add(164, 166, Util::formatCnab('9', '081', 3)); // Versão do layout
+        $this->add(164, 166, Util::formatCnab('9', '087', 3)); // Versão do layout
         $this->add(167, 171, Util::formatCnab('9', '0000', 5)); // Versão do layout
         $this->add(172, 240, ''); // Reservado (Uso Banco)
 
@@ -283,20 +283,20 @@ class Bancoob extends AbstractRemessa implements RemessaContract
         $this->add(1, 3, Util::onlyNumbers($this->getCodigoBanco())); //Codigo do banco
         $this->add(4, 7, '0001'); // Lote de Serviço    
         $this->add(8, 8, '1'); // Tipo de Registro
-        $this->add(9, 9, 'R'); // Tipo de operação
+        $this->add(9, 9, 'C'); // Tipo de operação
         $this->add(10, 11, Util::formatCnab(9, 01, 2)); // Tipo de serviço
-        $this->add(12, 13, Util::formatCnab('x', '', 2)); // Forma de lançamento
-        $this->add(14, 16, Util::formatCnab('9', '040', 3)); // Versão do layout
+        $this->add(12, 13, Util::formatCnab('x', 41, 2)); // Forma de lançamento
+        $this->add(14, 16, Util::formatCnab('9', '045', 3)); // Versão do layout
         $this->add(17, 17, ''); // Reservados (Uso Banco)
         $this->add(18, 18, strlen(Util::onlyNumbers($this->getBeneficiario()->getDocumento())) == 14 ? '2' : '1'); // Tipo de inscrição da empresa
-        $this->add(19, 33, Util::formatCnab('9L', $this->getBeneficiario()->getDocumento(), 14)); // Numero de inscrição da empresa
-        $this->add(34, 53, Util::formatCnab('X', '', 20)); // Código do convênio no banco
-        $this->add(54, 58, Util::formatCnab('9', str_pad($this->getAgencia(), 5, '0', STR_PAD_LEFT), 5)); // Agência mantenedora da conta
-        $this->add(59, 59, Util::formatCnab('9L', $this->getAgenciaDv(), 1)); // Dígito verificador da agência (Uso Branco)
-        $this->add(60, 71, Util::formatCnab('9', $this->getConta(), 12)); // Número da conta corrente
-        $this->add(72, 72, Util::formatCnab('9', $this->getContaDv(), 1)); // Dígito verificador da conta
-        $this->add(73, 73, ''); // Dígito verificador da Ag/conta (Uso Banco)
-        $this->add(74, 102, Util::formatCnab('X', $this->getBeneficiario()->getNome(), 29)); // Nome do cedente
+        $this->add(19, 32, Util::formatCnab('9L', $this->getBeneficiario()->getDocumento(), 14)); // Numero de inscrição da empresa
+        $this->add(33, 52, Util::formatCnab('X', $this->getCodigoCliente(), 20)); // Código do convênio no banco
+        $this->add(53, 57, Util::formatCnab('9', str_pad($this->getAgencia(), 5, '0', STR_PAD_LEFT), 5)); // Agência mantenedora da conta
+        $this->add(58, 58, Util::formatCnab('9L', $this->getAgenciaDv(), 1)); // Dígito verificador da agência (Uso Branco)
+        $this->add(59, 70, Util::formatCnab('9', $this->getConta(), 12)); // Número da conta corrente
+        $this->add(71, 71, Util::formatCnab('9', $this->getContaDv(), 1)); // Dígito verificador da conta
+        $this->add(72, 72, ''); // Dígito verificador da Ag/conta (Uso Banco)
+        $this->add(73, 102, Util::formatCnab('X', $this->getBeneficiario()->getNome(), 30)); // Nome do cedente
         $this->add(103, 142, ''); // Mensagem 1
         $this->add(143, 172, Util::formatCnab('X', $this->getBeneficiario()->getEndereco(), 29)); // Logradouro
         $this->add(173, 177, Util::formatCnab('9', $this->getBeneficiario()->getNumero(), 5)); // Numero
