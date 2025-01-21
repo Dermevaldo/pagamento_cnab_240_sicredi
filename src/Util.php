@@ -292,17 +292,71 @@ final class Util
     public static function normalizeChars($string)
     {
         $normalizeChars = array(
-            'Á' => 'A', 'À' => 'A', 'Â' => 'A', 'Ã' => 'A', 'Å' => 'A', 'Ä' => 'A', 'Æ' => 'AE', 'Ç' => 'C',
-            'É' => 'E', 'È' => 'E', 'Ê' => 'E', 'Ë' => 'E', 'Í' => 'I', 'Ì' => 'I', 'Î' => 'I', 'Ï' => 'I', 'Ð' => 'Eth',
-            'Ñ' => 'N', 'Ó' => 'O', 'Ò' => 'O', 'Ô' => 'O', 'Õ' => 'O', 'Ö' => 'O', 'Ø' => 'O',
-            'Ú' => 'U', 'Ù' => 'U', 'Û' => 'U', 'Ü' => 'U', 'Ý' => 'Y', 'Ŕ' => 'R',
+            'Á' => 'A',
+            'À' => 'A',
+            'Â' => 'A',
+            'Ã' => 'A',
+            'Å' => 'A',
+            'Ä' => 'A',
+            'Æ' => 'AE',
+            'Ç' => 'C',
+            'É' => 'E',
+            'È' => 'E',
+            'Ê' => 'E',
+            'Ë' => 'E',
+            'Í' => 'I',
+            'Ì' => 'I',
+            'Î' => 'I',
+            'Ï' => 'I',
+            'Ð' => 'Eth',
+            'Ñ' => 'N',
+            'Ó' => 'O',
+            'Ò' => 'O',
+            'Ô' => 'O',
+            'Õ' => 'O',
+            'Ö' => 'O',
+            'Ø' => 'O',
+            'Ú' => 'U',
+            'Ù' => 'U',
+            'Û' => 'U',
+            'Ü' => 'U',
+            'Ý' => 'Y',
+            'Ŕ' => 'R',
 
-            'á' => 'a', 'à' => 'a', 'â' => 'a', 'ã' => 'a', 'å' => 'a', 'ä' => 'a', 'æ' => 'ae', 'ç' => 'c',
-            'é' => 'e', 'è' => 'e', 'ê' => 'e', 'ë' => 'e', 'í' => 'i', 'ì' => 'i', 'î' => 'i', 'ï' => 'i', 'ð' => 'eth',
-            'ñ' => 'n', 'ó' => 'o', 'ò' => 'o', 'ô' => 'o', 'õ' => 'o', 'ö' => 'o', 'ø' => 'o',
-            'ú' => 'u', 'ù' => 'u', 'û' => 'u', 'ü' => 'u', 'ý' => 'y', 'ŕ' => 'r', 'ÿ' => 'y',
+            'á' => 'a',
+            'à' => 'a',
+            'â' => 'a',
+            'ã' => 'a',
+            'å' => 'a',
+            'ä' => 'a',
+            'æ' => 'ae',
+            'ç' => 'c',
+            'é' => 'e',
+            'è' => 'e',
+            'ê' => 'e',
+            'ë' => 'e',
+            'í' => 'i',
+            'ì' => 'i',
+            'î' => 'i',
+            'ï' => 'i',
+            'ð' => 'eth',
+            'ñ' => 'n',
+            'ó' => 'o',
+            'ò' => 'o',
+            'ô' => 'o',
+            'õ' => 'o',
+            'ö' => 'o',
+            'ø' => 'o',
+            'ú' => 'u',
+            'ù' => 'u',
+            'û' => 'u',
+            'ü' => 'u',
+            'ý' => 'y',
+            'ŕ' => 'r',
+            'ÿ' => 'y',
 
-            'ß' => 'sz', 'þ' => 'thorn',
+            'ß' => 'sz',
+            'þ' => 'thorn',
         );
         return strtr($string, $normalizeChars);
     }
@@ -551,7 +605,8 @@ final class Util
         $even = array_map(
             function ($n) {
                 return ($n >= 5) ? 2 * $n - 9 : 2 * $n;
-            }, $even
+            },
+            $even
         );
         $total = array_sum($odd) + array_sum($even);
         return ((floor($total / 10) + 1) * 10 - $total) % 10;
@@ -722,7 +777,8 @@ final class Util
         $retorno = array_map(
             function ($a) {
                 return implode('', $a);
-            }, $retorno
+            },
+            $retorno
         );
 
         return implode("\r\n", $retorno);
@@ -909,5 +965,22 @@ final class Util
             return $obj;
         }
         throw new Exception('Objeto inválido, somente Pessoa e Array');
+    }
+
+    public static function formatPix($pix, $pixType)
+    {
+        switch ($pixType) {
+            case 1:
+                return '+55' . self::onlyNumbers($pix);
+                break;
+            case 2:
+                return $pix;
+                break;
+            default:
+                $pix = self::onlyAlphanumber($pix);
+                $pixArray = str_split($pix);
+                return array_slice($pixArray, 0, 8) . array_slice($pixArray, 7, 4) . array_slice($pixArray, 11, 4) . array_slice($pixArray, 15, 12);
+                break;
+        }
     }
 }
