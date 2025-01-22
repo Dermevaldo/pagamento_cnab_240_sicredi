@@ -96,11 +96,27 @@ abstract class AbstractPagamento implements PagamentoContract
     protected $contaDv;
 
     /**
+     * Chave PIX
+     *
+     * @var string
+     */
+    protected $pixKey;
+
+    /**
+     * Tipo PIX
+     *
+     * @var string
+     */
+    protected $pixType;
+
+
+    /**
      * Entidade favorecida
      *
      * @var PessoaContract
      */
     protected $favorecido;
+
 
     /**
      * Construtor
@@ -452,6 +468,42 @@ abstract class AbstractPagamento implements PagamentoContract
     public function getValor()
     {
         return Util::nFloat($this->valor, 2, false);
+    }
+
+
+    /**
+     * @param mixed $pixKey
+     * @return Sicredi
+     */
+    public function setPixType($pixType)
+    {
+        $this->pixType = $pixType;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPixType()
+    {
+        return $this->pixType;
+    }
+    /**
+     * @return mixed
+     */
+    public function getPixKey()
+    {
+        return $this->pixKey;
+    }
+
+    /**
+     * @param mixed $pixKey
+     * @return Sicredi
+     */
+    public function setPixKey($pixKey)
+    {
+        $this->pixKey = $pixKey;
+        return $this;
     }
 
     /**

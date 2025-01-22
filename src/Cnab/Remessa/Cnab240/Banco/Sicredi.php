@@ -104,10 +104,14 @@ class Sicredi extends AbstractRemessa implements RemessaContract
      */
     protected $codigoCliente;
 
+    /**
+     * Forma de lancamento
+     *
+     * @var string
+     */
+    protected $formaLancamento;
 
     protected $agenciaDv;
-
-    protected $formaLancamento;
 
     /**
      * Retorna o codigo do cliente.
@@ -147,41 +151,6 @@ class Sicredi extends AbstractRemessa implements RemessaContract
     public function setAgenciaDv($agenciaDv)
     {
         $this->agenciaDv = $agenciaDv;
-        return $this;
-    }
-
-    /**
-     * @param mixed $pixKey
-     * @return Sicredi
-     */
-    public function setPixType($pixType)
-    {
-        $this->pixType = $pixType;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPixType()
-    {
-        return $this->pixType;
-    }
-    /**
-     * @return mixed
-     */
-    public function getPixKey()
-    {
-        return $this->pixKey;
-    }
-
-    /**
-     * @param mixed $pixKey
-     * @return Sicredi
-     */
-    public function setPixKey($pixKey)
-    {
-        $this->pixKey = $pixKey;
         return $this;
     }
 
@@ -268,7 +237,7 @@ class Sicredi extends AbstractRemessa implements RemessaContract
     {
         $this->qtyRegistrosLote = $nSequencialLote;
         $this->iniciaDetalhe();
-        $formaLancamento = $pagamento->getFormaLancamento() ?? 48;
+        $formaLancamento = $this->getFormaLancamento() ?? 48;
         $this->add(1, 3, Util::onlyNumbers($this->getCodigoBanco())); //Código do Banco
         $this->add(4, 7, Util::formatCnab(9, 0001, 4)); // Numero do lote remessa
         $this->add(8, 8, Util::formatCnab(9, 3, 1)); // Numero do lote remessa
