@@ -117,6 +117,12 @@ abstract class AbstractPagamento implements PagamentoContract
      */
     protected $favorecido;
 
+    /**
+     * Forma de lancamento
+     *
+     * @var string
+     */
+    protected $formaLancamento;
 
     /**
      * Construtor
@@ -505,6 +511,27 @@ abstract class AbstractPagamento implements PagamentoContract
         $this->pixKey = $pixKey;
         return $this;
     }
+
+
+    /**
+     * @return mixed
+     */
+    public function getFormaLancamento()
+    {
+        return $this->formaLancamento;
+    }
+
+    /**
+     * @param mixed $pixKey
+     * @return Sicredi
+     */
+    public function setFormaLancamento($formaLancamento)
+    {
+        $this->formaLancamento = $formaLancamento;
+        return $this;
+    }
+
+
 
     /**
      * Mostra exception ao erroneamente tentar setar o nosso número
