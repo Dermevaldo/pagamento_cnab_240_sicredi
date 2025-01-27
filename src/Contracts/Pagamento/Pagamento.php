@@ -96,4 +96,27 @@ interface Pagamento
      */
     public function getValor();
 
+    // /*     /**
+    //  * Chave PIX
+    //  *
+    //  * @var string
+    //  */
+    // protected $pixKey;
+
+    // /**
+    //  * Tipo PIX
+    //  *
+    //  * @var string
+    //  */
+    // protected $pixType;
+
+    /**
+     * @return mixed
+     */
+    public function getPixKey();
+
+    /**
+     * @return mixed
+     */
+    public function getPixType();
 }

@@ -3,6 +3,7 @@
 namespace Murilo\Pagamento\Cnab\Remessa\Cnab240\Banco;
 
 use Exception;
+use Illuminate\Support\Facades\Log;
 use Murilo\Pagamento\Cnab\Remessa\Cnab240\AbstractRemessa;
 use Murilo\Pagamento\Contracts\Boleto\Boleto as BoletoContract;
 use Murilo\Pagamento\Contracts\Pagamento\Pagamento as PagamentoContract;
@@ -104,14 +105,11 @@ class Sicredi extends AbstractRemessa implements RemessaContract
      */
     protected $codigoCliente;
 
-    /**
-     * Forma de lancamento
-     *
-     * @var string
-     */
-    protected $formaLancamento;
-
+    private $sequenciaSegmento = 0;
+    private $qtyRegistrosLote = 0;
     protected $agenciaDv;
+
+    protected $formaLancamento;
 
     /**
      * Retorna o codigo do cliente.
@@ -155,6 +153,41 @@ class Sicredi extends AbstractRemessa implements RemessaContract
     }
 
     /**
+     * @param mixed $pixKey
+     * @return Sicredi
+     */
+    public function setPixType($pixType)
+    {
+        $this->pixType = $pixType;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPixType()
+    {
+        return $this->pixType;
+    }
+    /**
+     * @return mixed
+     */
+    public function getPixKey()
+    {
+        return $this->pixKey;
+    }
+
+    /**
+     * @param mixed $pixKey
+     * @return Sicredi
+     */
+    public function setPixKey($pixKey)
+    {
+        $this->pixKey = $pixKey;
+        return $this;
+    }
+
+    /**
      * Seta a forma de lancamento
      * @var string
      * @param $formaLancamento
@@ -175,9 +208,11 @@ class Sicredi extends AbstractRemessa implements RemessaContract
 
     public function addPagamento(PagamentoContract $pagamento, $nSequencialLote = null)
     {
-        $this->segmentoA($nSequencialLote + $nSequencialLote + 1, $pagamento);
-        $this->segmentoB($nSequencialLote + $nSequencialLote + 2, $pagamento);
-
+        $this->sequenciaSegmento++;
+        $this->segmentoA($this->sequenciaSegmento, $pagamento);
+        $this->sequenciaSegmento++;
+        $this->segmentoB($this->sequenciaSegmento, $pagamento);
+        $this->qtyRegistrosLote = $this->sequenciaSegmento;
         return $this;
     }
 
@@ -200,7 +235,7 @@ class Sicredi extends AbstractRemessa implements RemessaContract
         $this->add(14, 14, Util::formatCnab('9', 'A', 1)); // Código de segmento do reg. detalhe
         $this->add(15, 15, Util::formatCnab('9', $pagamento->getTipoMovimento(), 1)); // Código de segmento do reg. detalhe
         $this->add(16, 17, Util::formatCnab(9, $pagamento->getTipoMovimento(), 2)); // Código de movimento remessa
-        $this->add(18, 20, Util::formatCnab(9, '018', 3));
+        $this->add(18, 20, Util::formatCnab(9, Util::getCamaraCompensacao($this->getFormaLancamento()), 3));
         $this->add(21, 23, Util::formatCnab(9, $pagamento->getBanco(), 3)); // Numero da conta corrente
         $this->add(24, 28, Util::formatCnab(9, $pagamento->getAgencia(), 5)); // Numero da conta corrente
         $this->add(29, 29, Util::formatCnab('X', $pagamento->getAgenciaDv(), 1)); // Numero da conta corrente
@@ -235,19 +270,20 @@ class Sicredi extends AbstractRemessa implements RemessaContract
      */
     public function segmentoB($nSequencialLote, PagamentoContract $pagamento)
     {
-        $this->qtyRegistrosLote = $nSequencialLote;
         $this->iniciaDetalhe();
-        $formaLancamento = $this->getFormaLancamento() ?? 48;
+        $formaLancamento = $pagamento->getFormaLancamento() ?? 45;
+        $numInscricaoFavorecido = Util::onlyNumbers($pagamento->getFavorecido()->getDocumento());
         $this->add(1, 3, Util::onlyNumbers($this->getCodigoBanco())); //Código do Banco
         $this->add(4, 7, Util::formatCnab(9, 0001, 4)); // Numero do lote remessa
         $this->add(8, 8, Util::formatCnab(9, 3, 1)); // Numero do lote remessa
         $this->add(9, 13, Util::formatCnab(9, $nSequencialLote, 5)); // Nº sequencial do registro de lote
         $this->add(14, 14, Util::formatCnab('X', 'B', 1)); // Nº sequencial do registro de lote
+
         if ($formaLancamento == 45) {
-            $this->add(15, 16, Util::formatCnab(9, $this->getPixType(), 6)); // Tipo de Identificação de Chave Pix
+            $this->add(15, 16, Util::formatCnab(9, $pagamento->getPixType(), 2)); // Tipo de Identificação de Chave Pix
             $this->add(17, 17, ''); // Reservado (Uso Banco)
-            $this->add(18, 18, strlen(Util::onlyNumbers($pagamento->getFavorecido()->getDocumento())) == 14 ? '2' : '1');
-            $this->add(19, 32, $this->getPixType() == 3 ? Util::formatCnab(9, Util::onlyNumbers($pagamento->getFavorecido()->getDocumento()), 14) : Util::formatCnab('9', 0, 14)); // Número de inscrição do sacado
+            $this->add(18, 18, strlen($numInscricaoFavorecido) == 14 ? '2' : '1');
+            $this->add(19, 32, Util::formatCnab(9, $numInscricaoFavorecido, 14)); // Número de inscrição do sacado
             $this->add(33, 62, Util::formatCnab('X', '', 30)); // Endereço do pagador/Sacado
             $this->add(63, 67, Util::formatCnab('X', $pagamento->getFavorecido()->getNumero(), 5)); // Endereço do pagador/Sacado
             $this->add(68, 82, Util::formatCnab('X', $pagamento->getFavorecido()->getComplemento(), 5)); // Endereço do pagador/Sacado
@@ -256,11 +292,11 @@ class Sicredi extends AbstractRemessa implements RemessaContract
             $this->add(118, 122, Util::formatCnab(9, Util::onlyNumbers($pagamento->getFavorecido()->getCep()), 5)); // CEP do pagador/Sacado
             $this->add(123, 125, Util::formatCnab(9, Util::onlyNumbers(substr($pagamento->getFavorecido()->getCep(), 6, 9)), 3)); //SUFIXO do cep do pagador/Sacado
             $this->add(126, 127, Util::formatCnab('X', $pagamento->getFavorecido()->getUf(), 2)); // Uf do sacado
-            if ($this->getPixType() == 3) {
+            if ($pagamento->getPixType() == 3) {
                 $this->add(128, 240, Util::formatCnab('X', '', 112)); // Em Branco
                 return;
             }
-            $this->add(128, 232, Util::formatPix($this->getPixKey(), $this->getPixType())); // Chave Pix
+            $this->add(128, 232, Util::formatPix($pagamento->getPixKey(), $pagamento->getPixType())); // Chave Pix
             $this->add(233, 240, Util::formatCnab('X', '', 8)); // Em Branco
             return;
         }

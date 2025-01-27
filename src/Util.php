@@ -967,6 +967,21 @@ final class Util
         throw new Exception('Objeto inválido, somente Pessoa e Array');
     }
 
+    public static function getCamaraCompensacao(int $formaLancamento)
+    {
+        switch ($formaLancamento) {
+            case 45:
+                return 9;
+                break;
+            case 41:
+                return 18;
+                break;
+            default:
+                return 18;
+                break;
+        }
+    }
+
     public static function formatPix($pix, $pixType)
     {
         switch ($pixType) {
@@ -976,11 +991,16 @@ final class Util
             case 2:
                 return $pix;
                 break;
-            default:
+            case 3:
+                return self::onlyNumbers($pix);
+                break;
+            case 4:
                 $pix = self::onlyAlphanumber($pix);
                 $pixArray = str_split($pix);
                 return array_slice($pixArray, 0, 8) . array_slice($pixArray, 7, 4) . array_slice($pixArray, 11, 4) . array_slice($pixArray, 15, 12);
                 break;
+            default:
+                return $pix;
         }
     }
 }
