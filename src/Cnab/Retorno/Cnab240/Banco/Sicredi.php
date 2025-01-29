@@ -257,10 +257,10 @@ class Sicredi extends AbstractRetorno implements RetornoCnab240
 
         if ($this->getSegmentType($detalhe) == 'B') {
             $d->setDataVencimento($this->rem(128, 135, $detalhe))
-                ->setValorAbatimento(Util::nFloat($this->rem(151, 165, $detalhe) / 100, 2, false))
-                ->setValorDesconto(Util::nFloat($this->rem(166, 180, $detalhe) / 100, 2, false))
-                ->setValorMora(Util::nFloat($this->rem(181, 195, $detalhe) / 100, 2, false))
-                ->setValorMulta(Util::nFloat($this->rem(196, 210, $detalhe) / 100, 2, false));
+                ->setValorAbatimento(Util::nFloat((float)$this->rem(151, 165, $detalhe) / 100, 2, false))
+                ->setValorDesconto(Util::nFloat((float)$this->rem(166, 180, $detalhe) / 100, 2, false))
+                ->setValorMora(Util::nFloat((float)$this->rem(181, 195, $detalhe) / 100, 2, false))
+                ->setValorMulta(Util::nFloat((float)$this->rem(196, 210, $detalhe) / 100, 2, false));
 
             $documento = $this->rem(19, 32, $detalhe);
 
