@@ -995,9 +995,8 @@ final class Util
                 return self::onlyNumbers($pix);
                 break;
             case 4:
-                $pix = self::onlyAlphanumber($pix);
-                $pixArray = str_split($pix);
-                return array_slice($pixArray, 0, 8) . array_slice($pixArray, 7, 4) . array_slice($pixArray, 11, 4) . array_slice($pixArray, 15, 12);
+                $pixFormatted = preg_replace('/[^a-zA-Z0-9]/', '', $pix);
+                return substr(str_pad($pixFormatted, 32, '0', STR_PAD_RIGHT), 0, 32);
                 break;
             default:
                 return $pix;
