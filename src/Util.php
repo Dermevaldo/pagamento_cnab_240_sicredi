@@ -995,8 +995,19 @@ final class Util
                 return self::onlyNumbers($pix);
                 break;
             case 4:
-                $pixFormatted = preg_replace('/[^a-zA-Z0-9]/', '', $pix);
-                return substr(str_pad($pixFormatted, 32, '0', STR_PAD_RIGHT), 0, 32);
+                $pix = preg_replace('/[^a-f0-9]/i', '', $pix);
+
+                // Verifica se tem exatamente 32 caracteres
+                if (strlen($pix) !== 32) {
+                    return "00000000-0000-0000-0000-000000000000";
+                }
+
+                // Insere os traços no padrão UUID
+                return substr($pix, 0, 8) . '-' .
+                    substr($pix, 8, 4) . '-' .
+                    substr($pix, 12, 4) . '-' .
+                    substr($pix, 16, 4) . '-' .
+                    substr($pix, 20);
                 break;
             default:
                 return $pix;
