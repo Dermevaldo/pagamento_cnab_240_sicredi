@@ -296,8 +296,8 @@ class Sicredi extends AbstractRemessa implements RemessaContract
                 $this->add(128, 240, Util::formatCnab('X', '', 112)); // Em Branco
                 return;
             }
-            $this->add(128, 232, Util::formatPix($pagamento->getPixKey(), $pagamento->getPixType())); // Chave Pix
-            $this->add(233, 240, Util::formatCnab('X', '', 8)); // Em Branco
+            $this->add(128, 226, Util::formatPix($pagamento->getPixKey(), $pagamento->getPixType())); // Chave Pix
+            $this->add(227, 240, Util::formatCnab('X', '', 8)); // Em Branco
             return;
         }
         $this->add(15, 17, ''); // Reservado (Uso Banco)
